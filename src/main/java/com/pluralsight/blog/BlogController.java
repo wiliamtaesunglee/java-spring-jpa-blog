@@ -30,7 +30,7 @@ public class BlogController {
 
     @RequestMapping("/post/{id}")
     public String postDetails(@PathVariable Long id, ModelMap modelMap) {
-        Post post = postRepository.findById(id).orElse(null);
+        Post post = (Post) postRepository.findById(id).orElse(null);
         modelMap.put("post", post);
         return "post-details";
     }
